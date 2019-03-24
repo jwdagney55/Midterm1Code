@@ -21,10 +21,14 @@ public class Rectangle extends Shape {
 	
 	public void setiWidth(int newWidth)
 	{
+		if (newWidth<=0)
+			throw new IllegalArgumentException();
 		iWidth = newWidth;
 	}
 	
 	public void setiLength(int newLength) {
+		if (newLength<=0)
+			throw new IllegalArgumentException();
 		iLength = newLength;
 	}
 	
@@ -54,8 +58,7 @@ public class Rectangle extends Shape {
 	}
 
 	public int compareTo(Object obj) {
-		
-		
-		return 0;
+		Rectangle rec = (Rectangle) obj;
+		return (int) (this.area() - rec.area() );
 	}
 }
